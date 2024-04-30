@@ -1,0 +1,57 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    gap: 20px
+}
+
+
+
+.name_user{
+    text-transform: uppercase;
+}
+
+.logOut_button {
+    background-color: transparent;
+    border: 1px solid #433a46ab;
+    color: #00132C;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 16px 23px;
+    position: relative;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.logOut_button:hover,
+.logOut_button:active {
+    outline: 0;
+}
+
+.logOut_button:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.logOut_button:before {
+    background-color: #7d973b;
+    content: "";
+    height: calc(100% + 3px);
+    position: absolute;
+    right: -7px;
+    top: -9px;
+    transition: background-color 300ms ease-in;
+    width: 100%;
+    z-index: -1;
+    border-radius: 20px;
+}
+
+.logOut_button:hover:before {
+    background-color: rgb(132, 189, 222);
+}
+
+
+.active:before {
+    background-color: rgba(155, 57, 104, 0.712);
+
+}
