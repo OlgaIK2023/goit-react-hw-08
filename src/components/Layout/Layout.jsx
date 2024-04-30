@@ -1,51 +1,21 @@
-import clsx from "clsx";
-import { NavLink } from "react-router-dom";
+import { Suspense } from 'react'
+import AppBar from '../AppBar/AppBar'
+import Loader from '../Loader/Loader'
+import Footer from '../Footer/Footer'
 
-import css from "../../App.module.css";
-import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
-
-const getNavLinkClassName = ({ isActive }) =>
-  clsx(css.navLink, {
-    [css.active]: isActive,
-  });
 
 const Layout = ({ children }) => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+    return (
+    <>
+        <AppBar />
+            <Suspense fallback={<Loader />}>
+          <main> {children} </main>
+        </Suspense>
+       <Footer />
+        </>
+    
+    
+  )
+}
 
-  return (
-    <div>
-      <header>
-        <nav className={css.nav}>
-          <NavLink className={getNavLinkClassName} to="/">
-            Home
-          </NavLink>
-          {isLoggedIn ? (
-            <>
-              <NavLink className={getNavLinkClassName} to="/contacts">
-                Contacts
-              </NavLink>
-              
-              
-              {/* <NavLink className={getNavLinkClassName} to="/search">
-                Search
-              </NavLink> */}
-            </>
-          ) : (
-            <>
-              <NavLink className={getNavLinkClassName} to="/register">
-                Register
-              </NavLink>
-              <NavLink className={getNavLinkClassName} to="/login">
-                Login
-              </NavLink>
-            </>
-          )}
-        </nav>
-      </header>
-      <main>{children}</main>
-    </div>
-  );
-};
-
-export default Layout;
+export default Layout
