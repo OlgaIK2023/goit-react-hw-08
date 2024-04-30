@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import css from "../../App.module.css";
 import { useSelector } from "react-redux";
-import { selectIsSignedIn } from "../../redux/auth/selectors";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const getNavLinkClassName = ({ isActive }) =>
   clsx(css.navLink, {
@@ -11,7 +11,7 @@ const getNavLinkClassName = ({ isActive }) =>
   });
 
 const Layout = ({ children }) => {
-  const isLoggedIn = useSelector(selectIsSignedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <div>
