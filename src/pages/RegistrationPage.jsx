@@ -7,9 +7,9 @@
 
 
 import { useSelector } from "react-redux";
-import { selectIsError, selectIsLoading } from '../../redux/auth/selectors';
-import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
-import Loader from '../../components/Loader/Loader';
+import { selectIsError, selectIsLoading } from '../redux/auth/selectors';
+import RegistrationForm from '../components/RegistrationForm/RegistrationForm'
+import Loader from '../components/Loader/Loader';
 
 const RegistrationPage = () => {
     const loading = useSelector(selectIsLoading);
