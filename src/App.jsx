@@ -15,7 +15,7 @@ import LoginPage from "./pages/LoginPage";
 import ContactsPage from "./pages/ContactsPage";
 import Layout from "./components/Layout/Layout";
 import { useDispatch } from "react-redux";
-import { apiRefreshUser } from "./redux/auth/authSlice";
+import { apiRefreshUser } from "./redux/auth/slice";
 
 /*
  Робота з маршрутизацією:

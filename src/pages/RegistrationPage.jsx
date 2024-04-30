@@ -5,7 +5,7 @@ import {
   MIN_CHAR_PASSWORD_VALIDATION,
 } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { apiRegister } from "../redux/auth/authSlice";
+import { apiRegister } from "../redux/auth/slice";
 
 const registerUserSchema = Yup.object().shape({
   name: Yup.string()

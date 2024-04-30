@@ -2,7 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { MIN_CHAR_PASSWORD_VALIDATION } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { apiLogin } from "../redux/auth/authSlice";
+import { apiLogin } from "../redux/auth/slice";
 
 const loginUserSchema = Yup.object().shape({
   email: Yup.string()
