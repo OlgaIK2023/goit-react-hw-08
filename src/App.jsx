@@ -15,7 +15,7 @@ import LoginPage from "./pages/LoginPage";
 import ContactsPage from "./pages/ContactsPage";
 import Layout from "./components/Layout/Layout";
 import { useDispatch } from "react-redux";
-import { apiRefreshUser } from "./redux/auth/slice";
+import { refreshUser } from "./redux/auth/operations";
 
 /*
  Робота з маршрутизацією:
@@ -36,7 +36,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(apiRefreshUser());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (
