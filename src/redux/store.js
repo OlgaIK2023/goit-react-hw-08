@@ -1,10 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-// import { contactsReducer } from './contactsSlice';
-// import { filtersReducer } from './filtersSlice';
-// import { contactsReducerNew } from "./contactsSliceNew";
-
-
-
+import { configureStore } from '@reduxjs/toolkit';
+import { contactsReducer } from './contacts/slice';
+import { filtersReducer } from './filters/slice';
+import { authReducer } from './auth/slice';
 import {
   persistStore,
   persistReducer,
@@ -18,31 +15,17 @@ import {
 import storage from "redux-persist/lib/storage";
 
 
-// import { timerReducer } from "./timer/timerSlice";
-
-import { authReducer } from "./auth/slice";
-
-const authPeristConfig = {
+const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
 };
 
-
-// export const store = configureStore({
-//   reducer: {
-//     contacts:contactsReducer,
-//     filters: filtersReducer,
-//   },
-// });
-
 export const store = configureStore({
   reducer: {
-    // mailbox: persistReducer(mailboxPeristConfig, mailboxReducer),
-   
-    // countDownTimer: timerReducer,
-    
-    auth: persistReducer(authPeristConfig, authReducer),
+    contacts:contactsReducer,
+    filters: filtersReducer,
+    auth:persistReducer(authPersistConfig, authReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
