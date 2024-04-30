@@ -18,7 +18,7 @@ import {
 import storage from "redux-persist/lib/storage";
 
 
-import { timerReducer } from "./timer/timerSlice";
+// import { timerReducer } from "./timer/timerSlice";
 
 import { authReducer } from "./auth/slice";
 
@@ -40,7 +40,7 @@ export const store = configureStore({
   reducer: {
     // mailbox: persistReducer(mailboxPeristConfig, mailboxReducer),
    
-    countDownTimer: timerReducer,
+    // countDownTimer: timerReducer,
     
     auth: persistReducer(authPeristConfig, authReducer),
   },
