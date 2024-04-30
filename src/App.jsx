@@ -1,38 +1,66 @@
-// import Contact from "./components/Contact/Contact";
-import ContactForm from "./components/ContactForm/ContactForm";
-import ContactList from "./components/ContactList/ContactList";
-import SearchBox from "./components/SearchBox/SearchBox";
+import { Suspense, lazy, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+
 import Loader from "./components/Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { apiRequestContacts } from "./redux/contactsOps";
-import { selectLoading,selectError } from './redux/selectors';
+
+const MailboxPage = lazy(() => import("./pages/MailboxPage"));
+const ProductsPage = lazy(() => import("./pages/ProductsPage"));
+const SearchPage = lazy(() => import("./pages/SearchPage"));
+const HomePage = lazy(() => import("./pages/HomePage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
+// TODO: add lazy loading
+import RegistrationPage from "./pages/RegistrationPage";
+import LoginPage from "./pages/LoginPage";
+import ContactsPage from "./pages/ContactsPage";
+import Layout from "./components/Layout/Layout";
+import { useDispatch } from "react-redux";
+import { apiRefreshUser } from "./redux/auth/authSlice";
+
+/*
+ Робота з маршрутизацією:
+  1. Навчитися змінювати URL-адресу браузера за допогобо 
+    компонента Link | NavLink.
+  2. Підготувати шаблони компонентів(сторінок) та рендерити
+    їх в залежності від шаблону адреси(pathname) в браузері (Route).
 
 
+  Компонети Link | NavLink - ми використовуємо для 
+    внутрішньої навігації всередині веб-сторінки.
+  Тег <a> - ми використовуємо для посиланнь на зовніші 
+    ресурси(ютубе, інста, тг, гугл посилання і т.п.).
+    -- target="_blank" rel="noopener noreferrer" --
+*/
 
-//APP code below
-
-function App() { 
-
+function App() {
   const dispatch = useDispatch();
-  
-  // const loading = useSelector(state => state.contacts.loading);
-  // const error = useSelector((state) => state.contacts.error);
 
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
-
-  useEffect (() => {dispatch(apiRequestContacts())}, [dispatch]);
+  useEffect(() => {
+    dispatch(apiRefreshUser());
+  }, [dispatch]);
 
   return (
-  <div>
-  <h1>Phonebook</h1>
-  <ContactForm />
-  <SearchBox />
-  {loading && !error && <Loader />}
-  <ContactList />
-</div>
-  )
+    <Layout>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+
+          <Route path="/mailbox" element={<MailboxPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route
+            path="/products/:productId/*"
+            element={<ProductDetailsPage />}
+          />
+          <Route path="/search" element={<SearchPage />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </Layout>
+  );
 }
 
-export default App
+export default App;
