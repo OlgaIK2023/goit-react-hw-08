@@ -25,15 +25,11 @@ const Layout = ({ children }) => {
               <NavLink className={getNavLinkClassName} to="/contacts">
                 Contacts
               </NavLink>
-              <NavLink className={getNavLinkClassName} to="/mailbox">
-                MailBox
-              </NavLink>
-              <NavLink className={getNavLinkClassName} to="/products">
-                Products
-              </NavLink>
-              <NavLink className={getNavLinkClassName} to="/search">
+              
+              
+              {/* <NavLink className={getNavLinkClassName} to="/search">
                 Search
-              </NavLink>
+              </NavLink> */}
             </>
           ) : (
             <>
