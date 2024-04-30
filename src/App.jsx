@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom";
 
 import Loader from "./components/Loader/Loader";
 
-const MailboxPage = lazy(() => import("./pages/MailboxPage"));
-const ProductsPage = lazy(() => import("./pages/ProductsPage"));
-const SearchPage = lazy(() => import("./pages/SearchPage"));
+// const MailboxPage = lazy(() => import("./pages/MailboxPage"));
+// const ProductsPage = lazy(() => import("./pages/ProductsPage"));
+// const SearchPage = lazy(() => import("./pages/SearchPage"));
 const HomePage = lazy(() => import("./pages/HomePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
+// const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
 // TODO: add lazy loading
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
@@ -48,13 +48,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
 
-          <Route path="/mailbox" element={<MailboxPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route
-            path="/products/:productId/*"
-            element={<ProductDetailsPage />}
-          />
-          <Route path="/search" element={<SearchPage />} />
+          
+         
+          
+          
 
           <Route path="*" element={<NotFound />} />
         </Routes>
