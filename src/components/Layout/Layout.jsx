@@ -11,7 +11,7 @@ const getNavLinkClassName = ({ isActive }) =>
   });
 
 const Layout = ({ children }) => {
-  const isSignedIn = useSelector(selectIsSignedIn);
+  const isLoggedIn = useSelector(selectIsSignedIn);
 
   return (
     <div>
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
           <NavLink className={getNavLinkClassName} to="/">
             Home
           </NavLink>
-          {isSignedIn ? (
+          {isLoggedIn ? (
             <>
               <NavLink className={getNavLinkClassName} to="/contacts">
                 Contacts
