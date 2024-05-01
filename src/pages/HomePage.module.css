@@ -30,12 +30,12 @@
 }
 
 .wrapper:before {
-    background-color: #d4bee2;
+    background-color: #82baba;
     content: "";
     height: calc(100% + 3px);
     position: absolute;
-    right: -15px;
-    top: -19px;
+    right: 0px;
+    top: 0px;
     transition: background-color 300ms ease-in;
     width: 100%;
     z-index: -1;
