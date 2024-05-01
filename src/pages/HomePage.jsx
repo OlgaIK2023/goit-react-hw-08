@@ -1,9 +1,18 @@
+import { Helmet } from 'react-helmet-async'
+import css from './HomePage.module.css'
+
 const HomePage = () => {
-    return (
-      <div>
-        <p>Welcome to our app🎉!</p>
+  return (
+   <>
+      <Helmet>
+          <title>Home Page</title>
+        </Helmet>
+      <div className={css.wrapper}>
+            <h1 className={css.title}>Connect with your contacts </h1>
+            <div className={css.image}></div>
       </div>
-    );
-  };
-  
-  export default HomePage;
+   </>
+  )
+}
+
+export default HomePage
