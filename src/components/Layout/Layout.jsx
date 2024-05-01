@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
             <Suspense fallback={<Loader />}>
           <main> {children} </main>
         </Suspense>
-       {/* <Footer /> */}
+       
         </>
     
     

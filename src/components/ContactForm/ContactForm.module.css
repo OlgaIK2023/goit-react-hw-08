@@ -1,37 +1,57 @@
-.forms {
-    margin: 0 auto 25px;
-    border: 1px solid black;
-    width: 350px;
-    padding: 15px;
-    border-radius: 8px;
-  }
-  
-  .add {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .btn {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    min-width: 100px;
-    height: 30px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 500;
-  }
-  
-  .btn:hover {
-    background-color: rgb(99, 99, 141);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid black;
-  }
-  
-  .inp {
-    border-radius: 3px;
-  }
-  
-  .err {
-    color: brown;
-  }
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 30px auto;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 250px;
+  background-color: rgba(245, 243, 246, 0.81);
+  font-size: 16px;
+  min-height: 250px;
+}
+
+.error {
+  color: red;
+  font-weight: 700;
+}
+
+.form>input{
+width: 100%;
+padding: 8px;
+border-radius: 8px;
+}
+
+
+.add_button {
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.add_button:after {
+  content: "";
+  background-color: #54287e;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+  border-radius: 20px;
+}
+
+.add_button:hover:after {
+  top: 0px;
+  left: 0px;
+}
